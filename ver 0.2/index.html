@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課程平台</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>114-1 課程平台</h1>
+    </header>
+
+    <!-- 書籤內容將由 JavaScript 動態生成 -->
+    <main id="main-container" class="container"></main>
+
+    <!-- 新增類別按鈕 -->
+    <div class="add-category-wrapper">
+        <button id="add-category-btn" class="add-category-btn">＋ 新增類別</button>
+    </div>
+
+    <!-- 新增書籤的彈出視窗 (Modal) -->
+    <div id="add-bookmark-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>新增/編輯書籤</h2>
+            <form id="add-bookmark-form">
+                <input type="hidden" id="bookmark-category-id">
+                <input type="hidden" id="bookmark-id">
+                <label for="bookmark-name">名稱:</label>
+                <input type="text" id="bookmark-name" required>
+                <label for="bookmark-url">網址:</label>
+                <input type="url" id="bookmark-url" placeholder="https://example.com" required>
+                <button type="submit">儲存</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 新增類別的彈出視窗 (Modal) -->
+    <div id="add-category-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>新增/編輯類別</h2>
+            <form id="add-category-form">
+                 <input type="hidden" id="category-id">
+                <label for="category-name">類別名稱:</label>
+                <input type="text" id="category-name" required>
+                <button type="submit">儲存</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 自訂右鍵選單 -->
+    <div id="context-menu" class="context-menu hidden">
+        <ul>
+            <!-- 選單項目將由 JavaScript 動態生成 -->
+        </ul>
+    </div>
+
+
+    <!-- 引用 JavaScript 檔案 -->
+    <script src="script.js"></script>
+</body>
+</html>

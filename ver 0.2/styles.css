@@ -1,0 +1,199 @@
+/* 基本樣式 */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 頁首樣式 */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+}
+
+/* 雙欄容器樣式 */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* 欄位樣式 */
+.column {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 書籤類別樣式 */
+.category {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.category.drag-over {
+    border: 2px dashed #d1b28a;
+}
+
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ff7700;
+    padding-bottom: 10px;
+    cursor: grab; /* 提示可以拖曳 */
+}
+
+.category-header:active {
+    cursor: grabbing;
+}
+
+
+.category h2 {
+    margin: 0;
+    color: #2b446b;
+}
+
+.add-bookmark-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-bookmark-btn:hover {
+    background: #2980b9;
+}
+
+/* 書籤按鈕列表 */
+.bookmark-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    min-height: 20px; /* 確保空的列表也可以成為拖放目標 */
+}
+
+/* 書籤按鈕樣式 */
+.bookmark-btn {
+    display: inline-block;
+    background-color: #6398bb;
+    color: #ffffff;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 125px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.bookmark-btn:hover {
+    background-color: #7197b0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.bookmark-btn:active {
+    background-color: #839bab;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 拖曳時的樣式 */
+.dragging {
+    opacity: 0.5;
+    background: #c0c0c0;
+}
+
+/* 新增類別按鈕 */
+.add-category-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.add-category-btn {
+    background-color: #71a788;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-category-btn:hover {
+    background-color: #77a289;
+}
+
+/* 彈出視窗 (Modal) 樣式 - 與前版相同 */
+.modal { position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; }
+.modal-content { background-color: #fefefe; padding: 30px; border-radius: 8px; width: 90%; max-width: 400px; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.close-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; position: absolute; top: 10px; right: 15px; cursor: pointer; }
+.close-btn:hover, .close-btn:focus { color: black; }
+form { display: flex; flex-direction: column; }
+form label { margin-top: 15px; margin-bottom: 5px; font-weight: bold; }
+form input { padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em; }
+form button { margin-top: 20px; padding: 12px; background-color: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1em; transition: background-color 0.3s; }
+form button:hover { background-color: #2980b9; }
+
+/* 右鍵選單樣式 */
+.context-menu {
+    position: absolute;
+    z-index: 2000;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 5px 0;
+    min-width: 150px;
+}
+
+.context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.context-menu ul li {
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.context-menu ul li:hover {
+    background-color: #f2f2f2;
+}
+
+.context-menu .delete {
+    color: #e74c3c;
+}
+
+.hidden {
+    display: none;
+}
