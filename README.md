@@ -1,4 +1,8 @@
 # Bookmark Webpage For Course Platform
+
+## [Download](https://github.com/Jimmymao330/bookmark_webpage_for_course-platform/releases/tag/alpha)
+
+
 > [!NOTE]
 > This is a webpage which can store the course platforms.
 
