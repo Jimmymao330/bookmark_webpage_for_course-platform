@@ -10,17 +10,27 @@
 
     <header>
         <h1>114-1 課程平台</h1>
+        <!-- 【新增】排序模式的控制按鈕 -->
+        <div id="sort-controls">
+            <button id="start-sort-btn" class="sort-control-btn">調整位置</button>
+            <div id="active-sort-controls" class="hidden">
+                <button id="save-sort-btn" class="sort-control-btn save">儲存變更</button>
+                <button id="cancel-sort-btn" class="sort-control-btn cancel">取消</button>
+            </div>
+        </div>
     </header>
 
     <!-- 書籤內容將由 JavaScript 動態生成 -->
     <main id="main-container" class="container"></main>
 
     <!-- 新增類別按鈕 -->
-    <div class="add-category-wrapper">
+    <div id="add-category-wrapper" class="add-category-wrapper">
         <button id="add-category-btn" class="add-category-btn">＋ 新增類別</button>
     </div>
 
-    <!-- 新增書籤的彈出視窗 (Modal) -->
+    <!-- ... (其他 HTML 內容不變) ... -->
+
+    <!-- (Modal 彈出視窗部分) -->
     <div id="add-bookmark-modal" class="modal hidden">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -32,12 +42,21 @@
                 <input type="text" id="bookmark-name" required>
                 <label for="bookmark-url">網址:</label>
                 <input type="url" id="bookmark-url" placeholder="https://example.com" required>
+                
+                <!-- 【修改】將 label 和重設按鈕包裝在一起 -->
+                <div class="form-row-label">
+                    <label for="bookmark-color">顏色:</label>
+                    <!-- 【新增】重設顏色按鈕 -->
+                    <button type="button" id="reset-color-btn" class="reset-color-btn" title="重設為預設顏色">↺</button>
+                </div>
+                <input type="color" id="bookmark-color" value="#3498db">
                 <button type="submit">儲存</button>
             </form>
         </div>
     </div>
 
-    <!-- 新增類別的彈出視窗 (Modal) -->
+<!-- ... (其他 HTML 內容不變) ... -->
+
     <div id="add-category-modal" class="modal hidden">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -50,16 +69,10 @@
             </form>
         </div>
     </div>
-
-    <!-- 自訂右鍵選單 -->
     <div id="context-menu" class="context-menu hidden">
-        <ul>
-            <!-- 選單項目將由 JavaScript 動態生成 -->
-        </ul>
+        <ul></ul>
     </div>
 
-
-    <!-- 引用 JavaScript 檔案 -->
     <script src="script.js"></script>
 </body>
 </html>

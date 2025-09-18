@@ -10,7 +10,7 @@ body {
 /* 頁首樣式 */
 header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: -10px;
 }
 
 header h1 {
@@ -98,7 +98,8 @@ header h1 {
 /* 書籤按鈕樣式 */
 .bookmark-btn {
     display: inline-block;
-    background-color: #6398bb;
+    /* 使用 CSS 變數，並提供一個預設值 */
+    background-color: var(--bookmark-bg-color, #74a2c2);
     color: #ffffff;
     padding: 10px 15px;
     margin-bottom: 10px;
@@ -115,12 +116,12 @@ header h1 {
 }
 
 .bookmark-btn:hover {
-    background-color: #7197b0;
+    filter: brightness(90%); /* 讓按鈕變暗一點 */
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .bookmark-btn:active {
-    background-color: #839bab;
+    filter: brightness(80%); /* 讓按鈕變得更暗 */
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -196,4 +197,113 @@ form button:hover { background-color: #2980b9; }
 
 .hidden {
     display: none;
+}
+
+
+
+
+/* 【新增】頁首控制按鈕樣式 */
+#sort-controls {
+    position: relative;
+    top: -75px;
+    left: 400px;
+}
+
+.sort-control-btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#start-sort-btn {
+    background-color: #f39c12;
+    color: white;
+}
+#start-sort-btn:hover {
+    background-color: #e67e22;
+}
+
+.sort-control-btn.save {
+    background-color: #2ecc71;
+    color: white;
+}
+.sort-control-btn.save:hover {
+    background-color: #27ae60;
+}
+
+.sort-control-btn.cancel {
+    background-color: #bdc3c7;
+    color: #34495e;
+}
+.sort-control-btn.cancel:hover {
+    background-color: #95a5a6;
+}
+
+/* 【新增】排序模式啟用時的樣式 */
+@keyframes shake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(0.5px, 0.5px) rotate(0.2deg); }
+    50% { transform: translate(-0.5px, 0.5px) rotate(-0.2deg); }
+    75% { transform: translate(-0.5px, -0.5px) rotate(0.2deg); }
+    100% { transform: translate(0.5px, -0.5px) rotate(-0.2deg); }
+}
+
+body.sort-mode-active .sortable-item {
+    animation: shake 0.5s infinite;
+}
+
+body.sort-mode-active .category-header {
+    cursor: grab;
+}
+body.sort-mode-active .category-header:active {
+    cursor: grabbing;
+}
+body.sort-mode-active .bookmark-btn {
+    cursor: grab;
+}
+body.sort-mode-active .bookmark-btn:active {
+    cursor: grabbing;
+}
+
+/* 在排序模式下，隱藏不相關的按鈕 */
+body.sort-mode-active .add-bookmark-btn,
+body.sort-mode-active #add-category-wrapper {
+    display: none;
+}
+
+/* 【新增】用於表單標籤列的 Flex 佈局 */
+.form-row-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px; /* 與其他 label 的間距保持一致 */
+    margin-bottom: 5px;
+}
+
+/* 移除原本 label 的上邊距，因為容器已經有了 */
+form label {
+    margin-top: 0;
+}
+
+/* 讓第一個 label 恢復上邊距 */
+form label:first-of-type {
+    margin-top: 15px;
+}
+
+/* 【新增】重設按鈕樣式 */
+.reset-color-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 5px;
+    font-size: 1.3em; /* 讓圖示大一點 */
+    color: #95a5a6; /* 中性灰色 */
+    transition: color 0.2s;
+}
+
+.reset-color-btn:hover {
+    color: #34495e; /* 深一點的灰色 */
 }
